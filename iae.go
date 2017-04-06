@@ -163,7 +163,7 @@ const (
 
 // Release controls if release checks should be performed. Release checks are
 // all those checks which are done using a CheckArg call and any chained check
-// positioned before the first occurence of Dbg() in the chain. If OFF is
+// positioned before the first occurrence of Dbg() in the chain. If OFF is
 // assigned no checks are performed. If ERROR is assigned to
 // this variable checks will be performed and an error will be returned in case
 // of a failing check. If PANIC is assigned to this variable checks will panic
@@ -172,7 +172,7 @@ var Release = ERROR
 
 // Debug controls if debug checks should be performed. Debug checks are
 // all those checks which are done using a CheckDbgArg call and any chained check
-// positioned after the first occurence of Dbg() in the chain.
+// positioned after the first occurrence of Dbg() in the chain.
 // If OFF is assigned no checks are performed. If ERROR
 // is assigned to this variable checks will be performed and an error will be
 // returned in case of a failing check. If PANIC is assigned to this variable
@@ -181,7 +181,7 @@ var Debug = PANIC
 
 type iae struct {
 	err     error // first error that occurred in a chain of argument checks.
-	execute bool  //  false if checks do not need to be executed
+	execute bool  // false if checks do not need to be executed
 	debug   bool  // true when checks are debug checks
 }
 

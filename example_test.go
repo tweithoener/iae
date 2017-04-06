@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/tweithoener/iae"
+	"git.weithoener.net/repo/iae"
 )
 
 // B wraps an int value
@@ -51,7 +51,7 @@ func Bar(a int) (b *B, err error) {
 
 func Example() {
 	// Make sure we get errors not panic
-	iae.Exported = iae.ERROR
+	iae.Release = iae.ERROR
 
 	// Let's call Foo() with different arguments
 	if _, err := Foo(5); err != nil {
@@ -72,7 +72,7 @@ func Example() {
 	}
 
 	// Output:
-	// 5 is not OK: illegal argument error: argument 1 of github.com/tweithoener/iae_test.Foo is '5' but must be >10 ...
-	// 5 is still not OK: illegal argument error: argument 1 of github.com/tweithoener/iae_test.Bar is '5' but must be >10 ...
+	// 5 is not OK: illegal argument error: argument 1 of git.weithoener.net/repo/iae_test.Foo is '5' but must be >10 ...
+	// 5 is still not OK: illegal argument error: argument 1 of git.weithoener.net/repo/iae_test.Bar is '5' but must be >10 ...
 
 }

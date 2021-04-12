@@ -6,10 +6,6 @@ import (
 	"git.weithoener.net/repo/iae"
 )
 
-func simple(a int) error {
-	return iae.CheckDbgArg(a > 0, 1, a, ">0")
-}
-
 func multi(a int) error {
 	return iae.Check().Dbg().
 		Arg(a > 1, 1, a, ">1").
@@ -18,7 +14,7 @@ func multi(a int) error {
 }
 
 func Exported(a int) error {
-	return iae.CheckArg(a > 0, 1, a, ">0")
+	return iae.Check().Arg(a > 0, 1, a, ">0").Err()
 }
 
 func Mixed(a int) error {
@@ -37,18 +33,6 @@ func TestPrecond(t *testing.T) {
 		expErr   bool
 		expPanic bool
 	}{
-		{iae.OFF, iae.ERROR, simple, 1, false, false},
-		{iae.ERROR, iae.ERROR, simple, 1, false, false},
-		{iae.PANIC, iae.ERROR, simple, 1, false, false},
-
-		{iae.OFF, iae.ERROR, simple, -1, true, false},
-		{iae.ERROR, iae.ERROR, simple, -1, true, false},
-		{iae.PANIC, iae.ERROR, simple, -1, true, false},
-
-		{iae.OFF, iae.OFF, simple, -1, false, false},
-		{iae.ERROR, iae.OFF, simple, -1, false, false},
-		{iae.PANIC, iae.OFF, simple, -1, false, false},
-
 		{iae.ERROR, iae.OFF, Exported, 1, false, false},
 		{iae.ERROR, iae.ERROR, Exported, 1, false, false},
 		{iae.ERROR, iae.PANIC, Exported, 1, false, false},
@@ -76,18 +60,6 @@ func TestPrecond(t *testing.T) {
 		{iae.OFF, iae.OFF, multi, -1, false, false},
 		{iae.ERROR, iae.OFF, multi, -1, false, false},
 		{iae.PANIC, iae.OFF, multi, -1, false, false},
-
-		{iae.OFF, iae.PANIC, simple, 1, false, false},
-		{iae.ERROR, iae.PANIC, simple, 1, false, false},
-		{iae.PANIC, iae.PANIC, simple, 1, false, false},
-
-		{iae.OFF, iae.PANIC, simple, -1, false, true},
-		{iae.ERROR, iae.PANIC, simple, -1, false, true},
-		{iae.PANIC, iae.PANIC, simple, -1, false, true},
-
-		{iae.OFF, iae.OFF, simple, -1, false, false},
-		{iae.ERROR, iae.OFF, simple, -1, false, false},
-		{iae.PANIC, iae.OFF, simple, -1, false, false},
 
 		{iae.PANIC, iae.OFF, Exported, 1, false, false},
 		{iae.PANIC, iae.ERROR, Exported, 1, false, false},

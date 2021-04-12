@@ -15,7 +15,6 @@
 //
 // Have a look at the example to see the functionality in action. It's really easy
 // to use.
-
 //
 // A note: The author thinks it is vital to check function arguments. This
 // is especially true for exported functions, You may call this 'preconditions'. But

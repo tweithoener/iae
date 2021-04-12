@@ -1,3 +1,3 @@
-module git.weithoener.net/repo/iae
+module github.com/tweithoener/iae
 
 go 1.16

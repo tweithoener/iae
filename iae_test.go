@@ -3,7 +3,7 @@ package iae_test
 import (
 	"testing"
 
-	"git.weithoener.net/repo/iae"
+	"github.com/tweithoener/iae"
 )
 
 func multi(a int) error {

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"git.weithoener.net/repo/iae"
+	"github.com/tweithoener/iae"
 )
 
 // B wraps an int value
@@ -59,6 +59,6 @@ func Example() {
 	b.Foo(5)
 
 	// Output:
-	// 5 is not OK: illegal argument error: argument 1 of git.weithoener.net/repo/iae_test.(*B).Foo is '5' but must be >10 ...
-	// panic: illegal argument error: receiver of git.weithoener.net/repo/iae_test.(*B).Foo is '<nil>' but must be not nil ...
+	// 5 is not OK: illegal argument error: argument 1 of github.com/tweithoener/iae_test.(*B).Foo is '5' but must be >10 ...
+	// panic: illegal argument error: receiver of github.com/tweithoener/iae_test.(*B).Foo is '<nil>' but must be not nil ...
 }

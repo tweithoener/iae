@@ -74,6 +74,18 @@ func (d *iae) Arg(check bool, argument uint, value interface{}, condition string
 	return d
 }
 
+// CheckArg is a shorthand version of iae.Check.Arg(...).Err(). It is useful when you
+// only have one argument to check.
+func CheckArg(check bool, argument uint, value interface{}, condition string) error {
+	return Check().Arg(check, argument, value, condition).Err()
+}
+
+// CheckDbgArg is a shorthand version of iae.Check.Dbg().Arg(...).Err(). It is useful when you
+// only have one argument to check and you only want it checked in debug mode.
+func CheckDbgArg(check bool, argument uint, value interface{}, condition string) error {
+	return Check().Dbg().Arg(check, argument, value, condition).Err()
+}
+
 // Recv is documented in the IAE interface
 func (d *iae) Recv(check bool, value interface{}, condition string) IAE {
 	if check {
@@ -85,6 +97,18 @@ func (d *iae) Recv(check bool, value interface{}, condition string) IAE {
 
 	d.err = d.process(check, 0, value, condition)
 	return d
+}
+
+// CheckRecv is a shorthand version of iae.Check.Recv(...).Err(). It is useful when you
+// only have one argument to check.
+func CheckRecv(check bool, value interface{}, condition string) error {
+	return Check().Recv(check, value, condition).Err()
+}
+
+// CheckDbgRecv is a shorthand version of iae.Check.Dbg().Recv(...).Err(). It is useful when you
+// only have one argument to check and you only want it checked in debug mode.
+func CheckDbgRecv(check bool, value interface{}, condition string) error {
+	return Check().Dbg().Recv(check, value, condition).Err()
 }
 
 // Dbg is documented in the IAE interface.
